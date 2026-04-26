@@ -5,7 +5,7 @@ const Header=({cart,setCart})=>{
   return (
     <div className="menu">
       <Link to="/" className="logo">Reactify</Link>
-      <div className="menu-items">
+      <div className="links">
          <Link to="/">Home</Link>
          <Link to="/about">About</Link>
          <Link to="/contact">Contact</Link>
