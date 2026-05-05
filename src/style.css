@@ -97,6 +97,8 @@ a {
   justify-content: space-between;
   align-items: center;
   color: #fff;
+  gap: 10px; /* spacing */
+
   background: linear-gradient(
     0deg,
     rgba(0,0,0,0.9),
@@ -116,11 +118,11 @@ a {
 
 /* ----------- BUTTON ----------- */
 .btn {
-  position: absolute;
+  position: static;
   bottom: 15px;
   right: 15px;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   font-size: 20px;

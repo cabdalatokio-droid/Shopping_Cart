@@ -6,7 +6,7 @@ const Product=({product})=>{
  const [isInCart,setCart]=useState(false);
 
  useEffect(()=>{
-   const isCart=products.filter((pro)=>pro.id==product.id);
+   const isCart=products.filter((pro)=>pro.id===product.id);
    if(isCart.length>0){
     setCart(true);
    }
@@ -33,13 +33,20 @@ const Product=({product})=>{
     style={{minHeight:"100%", background:`linear-gradient(rgba(0,0 ,0 ,0.1),rgba(0, 0, 0, 0.1)),url(${product.urlImage})`,
     backgroundSize:"cover",
     backgroundRepeat:"no-repeat"}}>
-    <div className="info">
-      <span>{product.name}</span>
-      <span>{product.price}</span>
-    
-    </div>
-   <button className={`btn ${isInCart?"btn-secondary":"btn-primary"}`} onClick={checkthetheRoduct}>{isInCart?"-":"+"}</button>
-  
+   <div className="info">
+  <div>
+    <span>{product.name}</span>
+    <br />
+    <span>{product.price}</span>
+  </div>
+
+  <button
+    className={`btn ${isInCart ? "btn-secondary" : "btn-primary"}`}
+    onClick={checkthetheRoduct}
+  >
+    {isInCart ? "-" : "+"}
+  </button>
+</div>
   
     </div>
   )
