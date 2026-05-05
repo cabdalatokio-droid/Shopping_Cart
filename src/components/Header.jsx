@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "../style.css";
+import useShop from "../ShopContext";
 
-const Header=({cart,setCart})=>{
+const Header=()=>{
+  const{products}=useShop();
   return (
     <div className="menu">
       <Link to="/" className="logo">Reactify</Link>
@@ -14,7 +16,7 @@ const Header=({cart,setCart})=>{
 
       </div>
       <Link to="/cart">
-        <span className="cart">{cart}</span>
+        <span className="cart">{products.length}</span>
       </Link>
     </div>
   )

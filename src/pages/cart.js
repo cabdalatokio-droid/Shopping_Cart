@@ -1,6 +1,12 @@
-const Cart=({setCart})=>{
-   setCart(60);
-  return <h1>This is Cart page...</h1>
- 
+import CartProduct from "../components/CartProducts";
+import Payment from "../components/payment";
+
+const Cart=()=>{
+  return(
+    <div className="cart-container">
+     <CartProduct/>
+     <Payment/>
+    </div>
+  )
 }
 export default Cart;

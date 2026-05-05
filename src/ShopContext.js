@@ -1,5 +1,5 @@
 // ShopContext.js
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useMemo, useReducer } from "react";
 import ShopReducer, { initialState } from "./ShopReducer";
 // import { type } from "@testing-library/user-event/dist/type";
 
@@ -11,7 +11,7 @@ export const ShopProvider = ({ children }) => {
 
   const AddToCart = (product) => {
     
-
+       
     dispatch({
       type: "ADD_TO_CART",
       payload: product,
@@ -24,11 +24,24 @@ export const ShopProvider = ({ children }) => {
         payload:productId,
       })
     };
-  
+    // const calculateTotal=(products)=>{
+    // let total=0;
+    // products.forEach(e=>{
+    //   total+=e.price;
+    // });
+    // dispatch({
+    //   type:"CALCULATE_TOTAL_PRICE",
+    //   payload:total
+    // })
+    // }
+
+    const total = useMemo(() => {
+  return state.products.reduce((acc, item) => acc + item.price, 0);
+}, [state.products]);
 
   const values = {
     products: state.products,
-    total: state.total,
+    total,
     AddToCart,
     DeleteProduct
   };

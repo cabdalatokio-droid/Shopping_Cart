@@ -20,6 +20,11 @@ const ShopReducer = (state, action) => {
       (product) => product.id !== payload
     ),
   };
+  case"CALCULATE_TOTAL_PRICE":
+  return {
+    ...state,
+    total:payload,
+  };
 
     default:
       return state;
